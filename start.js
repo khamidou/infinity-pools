@@ -12,8 +12,8 @@ var hideFacebookFeed = function() {
 }
 
 
-var hidePocketFeed = function() {
-  var divs = document.getElementsByClassName("queue_togglesection_recommended");
+var hideAll = function(className) {
+  var divs = document.getElementsByClassName();
   for (var i = 0; i < divs.length; i++) {
     var div = divs[i];
 
@@ -21,6 +21,11 @@ var hidePocketFeed = function() {
       div.remove();
     }
   }
+};
+
+var hidePocketFeed = function() {
+  hideAll("queue_togglesection_recommended");
+  hideAll("queue_explore_option");
 }
 
 
@@ -36,4 +41,4 @@ var hideFeeds = function() {
 }
 
 
-setTimeout(hideFeeds, 1000);
+setTimeout(hideFeeds, 100);

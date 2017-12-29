@@ -4,6 +4,7 @@
   "version": "1.0",
 
   "description": "An extension to hide various feeds like Facebook's, Pocket, etc. ",
+  "update_url": "http://khamidou.com/extensions/update.xml",
   "applications": {
      "gecko": {
         "id": "infinitypools@khamidou.com"

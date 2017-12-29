@@ -13,7 +13,7 @@ var hideFacebookFeed = function() {
 
 
 var hideAll = function(className) {
-  var divs = document.getElementsByClassName();
+  var divs = document.getElementsByClassName(className);
   for (var i = 0; i < divs.length; i++) {
     var div = divs[i];
 

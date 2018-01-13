@@ -1,19 +1,13 @@
 {
   "manifest_version": 2,
   "name": "Infinity Pools",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "An extension to hide various feeds like Facebook's, Pocket, etc. ",
-  "update_url": "http://khamidou.com/extensions/update.xml",
-  "applications": {
-     "gecko": {
-        "id": "infinitypools@khamidou.com"
-     }
-  },
-
+  "update_url": "https://khamidou.com/extensions/update.xml",
   "content_scripts": [
     {
-      "matches": ["*://*.facebook.com/*", "*://*.getpocket.com/*"],
+      "matches": ["*://*.facebook.com/*", "*://*.getpocket.com/*", "*://*.twitter.com/*"],
       "js": ["start.js"]
     }
   ]

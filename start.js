@@ -29,6 +29,12 @@ var hidePocketFeed = function() {
 }
 
 
+var hideTwitterFeed = function() {
+  hideAll("stream-items");
+  hideAll("home");
+}
+
+
 var hideFeeds = function() {
   var domain = document.domain;
 
@@ -36,8 +42,9 @@ var hideFeeds = function() {
     hideFacebookFeed();
   } else if (domain.match(/getpocket\.com/)) {
     hidePocketFeed();
+  } else if (domain.match(/twitter\.com/)) {
+    hideTwitterFeed();
   }
-
 }
 
 

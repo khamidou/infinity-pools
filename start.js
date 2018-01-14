@@ -35,6 +35,17 @@ var hideTwitterFeed = function() {
 }
 
 
+var hideRedditComments = function() {
+  console.log("Hiding reddit comments");
+  hideAll("commentarea");
+}
+
+
+var hideHNComments = function() {
+  hideAll("comment");
+}
+
+
 var hideFeeds = function() {
   var domain = document.domain;
 
@@ -44,7 +55,14 @@ var hideFeeds = function() {
     hidePocketFeed();
   } else if (domain.match(/twitter\.com/)) {
     hideTwitterFeed();
+  } else if (domain.match(/reddit\.com/)) {
+    hideRedditComments();
+  } else if (domain.match(/news\.ycombinator\.com/)) {
+    hideHNComments();
   }
+
+
+
 }
 
 

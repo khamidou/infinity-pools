@@ -1,15 +1,4 @@
 // Strongly inspired by https://github.com/AntonOsika/newsfeed-eradicator/blob/master/erad.js
-var hideAll = function(className) {
-  var divs = document.getElementsByClassName(className);
-  for (var i = 0; i < divs.length; i++) {
-    var div = divs[i];
-
-    if (div != null) {
-      div.remove();
-    }
-  }
-};
-
 var getFormattedDate = function() {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -58,32 +47,6 @@ var saveConfig = async function(config) {
   });
 
   return p;
-}
-var createInfoDiv = function() {
-  elapsed_time_div = document.createElement('div');
-  elapsed_time_div.id = 'infinitypools_id';
-  elapsed_time_div.innerHTML = "" + config.remainingMinutes;
-  elapsed_time_div.style.position = 'fixed';
-  elapsed_time_div.style.bottom = '70px';
-  elapsed_time_div.style.left = '120px';
-  elapsed_time_div.style.color = 'darkblue';
-  elapsed_time_div.style.fontFamily = 'Helvetica Neue';
-  elapsed_time_div.style.fontSize = '30px';
-
-  document.body.appendChild(elapsed_time_div)
-}
-
-var hideTwitterFeed = async function() {
-  await refreshConfig();
-
-}
-
-function hideFeeds() {
-  var domain = document.domain;
-
-  if (domain.match(/twitter\.com/)) {
-    hideTwitterFeed();
-  }
 }
 
 var previousState = 'active'

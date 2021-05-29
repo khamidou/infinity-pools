@@ -1,0 +1,138 @@
+/* adapted from https://codepen.io/moettinger/pen/YVPzNX as well as
+                https://codepen.io/kareem-mahmoud/pen/abpamZp */
+
+body {
+  margin: 0;
+}
+
+.blns {
+  background: #d0f1ff;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.blns div {
+  top: 425px;
+  left: 0;
+  position: absolute;
+  width: 131px;
+  height: 159px;
+  border-radius: 50%;
+}
+.blns div:before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  right: 50%;
+  width: 0;
+  height: 0;
+  margin-right: -10px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 13px solid #c03940;
+}
+.blns div:after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  top: 30px;
+  left: 35px;
+  transform: rotate(45deg);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+}
+.blns div[class^=bln-1] {
+  height: 145px;
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, #b0cb47 0%, #3d954b 50%);
+  transform: rotate(20deg);
+}
+.blns div[class^=bln-1]:before {
+  border-bottom-color: #3d954b;
+}
+
+.blns div[class^=bln-2] {
+  width: 122px;
+  height: 141px;
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, #3bc0f0 0%, #0075bc 50%);
+  transform: rotate(-20deg);
+}
+
+.blns div[class^=bln-2]:before {
+  border-bottom-color: #0075bc;
+}
+
+.blns div[class^=bln-3] {
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, #f89640 0%, #c03940 50%);
+}
+
+.blns div[class^=bln-3]:before {
+  border-bottom-color: #c03940;
+}
+
+.blns div[class^=bln-4] {
+  width: 132px;
+  height: 151px;
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, #cf85b8 0%, #a3509d 50%);
+  transform: rotate(5deg);
+}
+
+.blns div[class^=bln-4]:before {
+  border-bottom-color: #a3509d;
+}
+
+.blns div[class^=bln-5] {
+  width: 137px;
+  height: 142px;
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, #ffec37 0%, #f8b13d 50%);
+  transform: rotate(7deg);
+}
+
+.blns div[class^=bln-5]:before {
+  border-bottom-color: #f8b13d;
+}
+
+.modal {
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: absolute;
+  left: 38%;
+  top: 35%;
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.16);
+  background-color: #fff;
+  border-radius: 0.25rem;
+  padding: 2rem;
+  z-index: 1;
+  text-align: center;
+}
+
+.emoji {
+  display: block;
+  text-align: center;
+  font-size: 5rem;
+  line-height: 5rem;
+}
+
+.modal-btn {
+  display: block;
+  margin: 0 -2rem -2rem -2rem;
+  padding: 1rem 2rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 .25rem .25rem;
+  background-color: var(--green);
+  text-decoration: none;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -6,6 +6,9 @@
   "description": "An extension to hide Twitter's feed after 30 mins every day.",
   "update_url": "https://khamidou.com/extensions/update.xml",
   "permissions": ["storage"],
+  "web_accessible_resources": [
+    "frame.html"
+  ],
   "content_scripts": [
     {
       "matches": ["*://*.twitter.com/*"],

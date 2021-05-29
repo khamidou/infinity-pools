@@ -33,7 +33,7 @@ var refreshConfig = async function() {
 
   let data = await p;
 
-  let defaultConfig = {currentDay: getFormattedDate(), remainingMinutes: 15}
+  let defaultConfig = {currentDay: getFormattedDate(), remainingMinutes: 30}
   if (data.config == {} || data.config == undefined) {
     Object.assign(config, data.config);
     return;
@@ -43,7 +43,7 @@ var refreshConfig = async function() {
     // if this is a new day, reset the config.
     Object.assign(config, defaultConfig);
     return;
-  else {
+  } else {
     Object.assign(config, data.config);
     return;
   }
@@ -98,7 +98,15 @@ async function mainEventHandler() {
   await refreshConfig();
   console.log(config.remainingMinutes);
   if (config.remainingMinutes <= 0) {
-    alert("you're at time!");
+    // Avoid recursive frame insertion...
+    var extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
+    if (!location.ancestorOrigins.contains(extensionOrigin)) {
+      var iframe = document.createElement('iframe');
+      // Must be declared at web_accessible_resources in manifest.json
+      iframe.src = chrome.runtime.getURL('frame.html');
+      window.location.href = iframe.src;
+    }
+
     return;
   }
 

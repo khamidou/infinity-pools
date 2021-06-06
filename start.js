@@ -68,7 +68,7 @@ async function mainEventHandler() {
     var extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
     if (!location.ancestorOrigins.contains(extensionOrigin)) {
       // Must be declared at web_accessible_resources in manifest.json
-      //window.location.href = chrome.runtime.getURL('frame.html');
+      window.location.href = chrome.runtime.getURL('frame.html');
     }
 
     return;

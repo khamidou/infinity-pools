@@ -54,20 +54,21 @@ async function mainEventHandler() {
   console.log("mainEventHandler started");
   if (document.hidden) {
     previousState = 'hidden';
+
+    console.log('Sleeping longer since tab is hidden');
     setTimeout(mainEventHandler, 10 * 1000);
     return;
   }
 
   await refreshConfig();
-  console.log(config.remainingMinutes);
+
+  console.log('Remaining minutes', config.remainingMinutes);
   if (config.remainingMinutes <= 0) {
     // Avoid recursive frame insertion...
     var extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
     if (!location.ancestorOrigins.contains(extensionOrigin)) {
-      var iframe = document.createElement('iframe');
       // Must be declared at web_accessible_resources in manifest.json
-      iframe.src = chrome.runtime.getURL('frame.html');
-      window.location.href = iframe.src;
+      //window.location.href = chrome.runtime.getURL('frame.html');
     }
 
     return;
@@ -80,14 +81,11 @@ async function mainEventHandler() {
   }
 
   previousState = 'active';
-  //setTimeout(mainEventHandler, 2 * 60 * 1000);
-  setTimeout(mainEventHandler, 10000);
+  setTimeout(mainEventHandler, 2 * 60 * 1000);
 }
 
 async function main() {
-  await refreshConfig();
   document.addEventListener('visibilityChange', mainEventHandler, false);
-
   setTimeout(mainEventHandler, 100);
 }
 

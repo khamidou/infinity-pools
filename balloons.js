@@ -9,11 +9,11 @@ function pickAnInt(min, max) {
   return Math.floor(pickANumber(min, max));
 }
 
-var colors = [['Salmon', 'DarkSalmon', 'LightSalmon'],
-              ['DarkOrange', 'Coral', 'Orange'],
-              ['PeachPuff', 'Moccasin', 'PapayaWhip'],
-              ['DarkTurquoise', 'MediumTurquoise', 'Aquamarine'],
-
+var colors = [['#ff7088', '#ff8599', '#ffadbb'],
+              ['#6cdad7', '#7cdedb', '#a0e7e5'],
+              ['#7cf3a0', '#8ff5ad', '#b4f8c9'],
+              ['#f7ce8d', '#f8d6a0', '#fbe7c6'],
+              ['#6b73db', '#7c82df', '#a0a5e8'],
 ];
 
 class Balloon {
@@ -51,8 +51,9 @@ function drawCanvasBalloons() {
       var mediumColor = colors[balloon.colorIndex][1];
       var darkColor = colors[balloon.colorIndex][0];
 
-      var linearGradient = ctx.createLinearGradient(balloon.x + 30, balloon.y,
-                                                    balloon.x - 50, balloon.y - 50);
+      var linearGradient = ctx.createLinearGradient(balloon.x - 50, balloon.y - 50,
+                                                    balloon.x + 100, balloon.y + 50);
+
       linearGradient.addColorStop(0, lightColor);
       linearGradient.addColorStop(0.5, mediumColor);
       linearGradient.addColorStop(.9, darkColor);
@@ -85,20 +86,6 @@ function drawCanvasBalloons() {
       ctx.fillStyle = linearGradient;
       ctx.fill();
       ctx.closePath();
-
-      /*
-      ctx.beginPath();
-      ctx.arc(gradient_x, gradient_y, 4, 0, 2 * Math.PI, false);
-
-      ctx.fillStyle = radialGradient;
-      ctx.fill();
-      ctx.closePath();
-      */
-
-      // Reset transformation matrix to the identity matrix
-
-      //ctx.setTransform(scale, 0, 0, scale, 0, 0);
-      //ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
   function animateBalloon(b, elapsed) {
